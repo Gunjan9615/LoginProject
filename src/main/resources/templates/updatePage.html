@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update User Details</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <center>
+        <h2>Update User Details</h2>
+        <form th:action="@{/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
+            <div>
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" th:field="*{fullname}" required>
+                <span th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></span><br><br>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" required>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br><br>
+            </div>
+            <div>
+                <label for="phone">Phone No:</label>
+                <input type="text" id="phone" th:field="*{phone}" required>
+                <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br><br>
+            </div>
+            <div>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" th:field="*{dob}" required>
+                <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span><br><br>
+            </div>
+            <div>
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" th:field="*{gender}" required>
+                <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span><br><br>
+            </div>
+            <div>
+                <label for="address1">Address Line 1:</label>
+                <input type="text" id="address1" th:field="*{address1}" required>
+                <span th:if="${#fields.hasErrors('address1')}" th:errors="*{address1}"></span><br><br>
+            </div>
+            <div>
+                <label for="address2">Address Line 2:</label>
+                <input type="text" id="address2" th:field="*{address2}" required>
+                <span th:if="${#fields.hasErrors('address2')}" th:errors="*{address2}"></span><br><br>
+            </div>
+            <div>
+                <label for="postalcode">Postal Code:</label>
+                <input type="text" id="postalcode" th:field="*{postalcode}" required>
+                <span th:if="${#fields.hasErrors('postalcode')}" th:errors="*{postalcode}"></span><br><br>
+            </div>
+            <div>
+                <label for="state">State:</label>
+                <input type="text" id="state" th:field="*{state}" required>
+                <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span><br><br>
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" th:field="*{country}" required>
+                <span th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></span><br><br>
+            </div>
+			<div>
+			<label for="password">Password:</label>
+			<input type="text" id="country" th:field="*{password}" required>
+			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br><br>
+			</div>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+			<a class="btn btn-secondary" th:href="@{/admin}" >Close</a>
+        </form>
+        <p th:if="${message}" th:text="${message}"></p>
+    </center>
+</body>
+</html>
